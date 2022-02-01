@@ -31,7 +31,6 @@ class SecurityConfiguration() : WebSecurityConfigurerAdapter(true) {
             .and()
             .authorizeRequests()
             .antMatchers(HttpMethod.GET, "/").hasAnyRole("GUEST")
-            .antMatchers(HttpMethod.GET, "/test").hasAnyRole("GUEST")
             .and()
             .cors().and()
             .csrf().disable()
