@@ -15,25 +15,12 @@ import org.springframework.security.core.Authentication
 
 @Configuration
 @EnableWebSecurity
-@Order(SecurityProperties.BASIC_AUTH_ORDER)
-class SecurityConfiguration() : WebSecurityConfigurerAdapter(true) {
-
-    @Autowired
-    fun configureGlobal(auth: AuthenticationManagerBuilder) {
-        auth.inMemoryAuthentication()
-            .withUser("guest").password("{noop}pass")
-            .roles("GUEST")
-    }
-
+class SecurityConfiguration() : WebSecurityConfigurerAdapter() {
     override fun configure(http: HttpSecurity) {
         http
-            .httpBasic()
-            .and()
-            .authorizeRequests()
-            .antMatchers(HttpMethod.GET, "/").hasAnyRole("GUEST")
-            .and()
             .cors().and()
             .csrf().disable()
             .formLogin().disable()
+            .httpBasic().disable()
     }
 }

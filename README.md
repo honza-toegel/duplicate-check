@@ -2,7 +2,7 @@
 ## Checking if the string exist
 The following command will check if the string "abc" already exist, the metadata can be used optionally, metadata are not checked for uniqueness
 ```shell
-curl -X POST -H 'Content-Type: application/json' -d '{"uniqueId": "abc","metadata": "123"}' -u guest:pass http://localhost:8080/DuplicateCheck/
+curl -X POST -H 'Content-Type: application/json' -d '{"uniqueId": "abc","metadata": "123"}' http://localhost:8080/DuplicateCheck/
 ```
 Expected output after first try, indicating that id "abc" doesn't exist yet
 ```json
@@ -26,5 +26,10 @@ Expected output after second try, indicating that id "abc" exist already:
 
 ## Statistics
 ```shell
-curl -u guest:pass http://localhost:8080/DuplicateCheck/statistics
+curl http://localhost:8080/DuplicateCheck/statistics
+```
+
+## Version
+```shell
+curl http://localhost:8080/DuplicateCheck/version
 ```
