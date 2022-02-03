@@ -19,13 +19,13 @@ import java.lang.IllegalArgumentException
 @ComponentScan("org.jto.dupcheck")
 @EntityScan("org.jto.dupcheck")
 @EnableJpaRepositories("org.jto.dupcheck")
-class EbicsRestApiApplication : SpringBootServletInitializer() {
+class DuplicateCheckRestApiApplication : SpringBootServletInitializer() {
 
     /**
      * Start app as war file
      */
     override fun configure(builder: SpringApplicationBuilder): SpringApplicationBuilder {
-        return builder.sources(EbicsRestApiApplication::class.java)
+        return builder.sources(DuplicateCheckRestApiApplication::class.java)
     }
 
     /**
@@ -62,6 +62,6 @@ class EbicsRestApiApplication : SpringBootServletInitializer() {
 }
 
 fun main(args: Array<String>) {
-    runApplication<EbicsRestApiApplication>(*args)
+    runApplication<DuplicateCheckRestApiApplication>(*args)
 }
 
